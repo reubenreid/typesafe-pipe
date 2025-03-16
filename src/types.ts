@@ -8,7 +8,7 @@ type ParamsMatchReturn<S extends Func, T extends Func> =
 
 type ComposedFunction<First extends Func, Last extends Func> = (...args: Parameters<First>) => ReturnType<Last>;
 
-export type Composed<T extends Func[], SavedFirst extends Func | undefined = undefined> = T extends [infer First extends Func, ...infer U, infer Last extends Func] 
+export type Composed<T extends readonly Func[], SavedFirst extends Func | undefined = undefined> = T extends [infer First extends Func, ...infer U, infer Last extends Func] 
     ? U extends [infer Second extends Func, ...infer Tail]
         ? ParamsMatchReturn<First, Second> extends never 
             ? never 
@@ -23,4 +23,4 @@ export type Composed<T extends Func[], SavedFirst extends Func | undefined = und
             : ComposedFunction<First, Last> 
     : never;
 
-type Test = Composed<[(a: number, b: string) => string, (a: string) => string, (a: string) => string, (a: string) => boolean, (a: boolean) => boolean]>;
+type Test = Composed<[() => string, (a: string) => string, (a: string) => string, (a: string) => boolean, (a: boolean) => boolean]>;
