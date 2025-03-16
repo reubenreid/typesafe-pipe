@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/reubenreid/typesafe-pipe/issues"
   },
-  "homepage": "https://github.com/reubenreid/typesafe-pipe#readme"
+  "homepage": "https://github.com/reubenreid/typesafe-pipe#readme",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
 }
